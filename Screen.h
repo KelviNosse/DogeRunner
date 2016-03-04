@@ -14,9 +14,10 @@ class Screen
         void drawObstacle();
     protected:
     private:
+        void FillScreen();
         int width;
         int height;
-        char **screen = new char*[width];
+        char **screen;
 
 };
 
