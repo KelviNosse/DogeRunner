@@ -16,7 +16,7 @@ class DogeMan
         int GetLives();
         char* GetBody();
         void Move(int x, int y);
-
+        void ResetBody();
     protected:
     private:
         char* name;

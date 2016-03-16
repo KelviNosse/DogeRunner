@@ -41,3 +41,7 @@ void DogeMan::Move(int x, int y){
     this->posy = y;
 
 }
+
+void DogeMan::ResetBody(){
+    this->CreateBody();
+}
