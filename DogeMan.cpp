@@ -35,3 +35,9 @@ char* DogeMan::GetBody(){
 char* DogeMan::GetName(){
     return this->name;
 }
+
+void DogeMan::Move(int x, int y){
+    this->posx = x;
+    this->posy = y;
+
+}
