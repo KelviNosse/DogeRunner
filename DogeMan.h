@@ -15,6 +15,7 @@ class DogeMan
         int GetScore();
         int GetLives();
         char* GetBody();
+        void Move(int x, int y);
 
     protected:
     private:
