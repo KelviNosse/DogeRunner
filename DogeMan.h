@@ -8,6 +8,8 @@ class DogeMan
         DogeMan(char* name);
         virtual ~DogeMan();
 
+        int posx;
+        int posy;
         char* GetName();
         bool IsAlive();
         int GetScore();
