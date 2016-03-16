@@ -37,3 +37,40 @@ void Screen::FillScreen(){
         }
     }
 }
+
+void Screen::drawDoge(DogeMan &doge){
+    char *body;
+    body = doge.GetBody();
+    int length = strlen(body);
+    int posy = 3;
+    int posx = 10;
+    for(int i = 0; i<length; i++){
+        if(body[i] == 'x'){
+            body[i] = '.';
+            posx = 10;
+            posy++;
+        }
+
+        drawAtPos(posx, posy, body[i]);
+
+        posx++;
+
+    }
+
+    displayScreen();
+//    std::cout<<screen[5][39];
+
+}
+
+void Screen::drawAtPos(int x, int y, char pixel){
+    this->screen[y][x] = pixel;
+
+}
+
+void Screen::Clear(){
+    for(int i = 0; i < width; i++){
+        free(this->screen[i]);
+    }
+
+    free(this->screen);
+}

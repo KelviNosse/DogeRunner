@@ -10,11 +10,13 @@ class Screen
         virtual ~Screen();
 
         void displayScreen();
-        void drawDoge();
+        void drawDoge(DogeMan &doge);
         void drawObstacle();
+        void Clear();
     protected:
     private:
         void FillScreen();
+        void drawAtPos(int x, int y, char pixel);
         int width;
         int height;
         char **screen;
