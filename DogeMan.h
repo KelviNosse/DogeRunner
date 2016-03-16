@@ -12,6 +12,7 @@ class DogeMan
         bool IsAlive();
         int GetScore();
         int GetLives();
+        char* GetBody();
 
     protected:
     private:
@@ -19,7 +20,8 @@ class DogeMan
         bool alive;
         int score;
         int lives;
-
+        char body[100];
+        void CreateBody();
 };
 
 #endif // DOGEMAN_H
