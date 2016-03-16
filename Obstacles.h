@@ -10,10 +10,16 @@ class Obstacles
 
         int GetWidth();
         int GetHeight();
+        int posx;
+        int posy;
+        char* GetBox();
+        void Move(int x, int y);
     protected:
     private:
         int width;
         int height;
+        char box[100];
+        void CreateBox();
 };
 
 #endif // OBSTACLES_H
