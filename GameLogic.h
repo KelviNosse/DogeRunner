@@ -2,7 +2,7 @@
 #define GAMELOGIC_H
 #include "DogeMan.h"
 #include "Obstacles.h"
-
+#include "Screen.h"
 class GameLogic
 {
     public:
@@ -13,7 +13,7 @@ class GameLogic
         void DetectCollision(DogeMan* man, Obstacles* obstacle);
     protected:
     private:
-
+        Screen* s;
 };
 
 #endif // GAMELOGIC_H
