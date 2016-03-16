@@ -42,12 +42,12 @@ void Screen::drawDoge(DogeMan &doge){
     char *body;
     body = doge.GetBody();
     int length = strlen(body);
-    int posy = 3;
-    int posx = 10;
+    int posy = doge.posy;
+    int posx = doge.posx;
     for(int i = 0; i<length; i++){
         if(body[i] == 'x'){
             body[i] = '.';
-            posx = 10;
+            posx = doge.posx;
             posy++;
         }
 
@@ -58,7 +58,6 @@ void Screen::drawDoge(DogeMan &doge){
     }
 
     displayScreen();
-//    std::cout<<screen[5][39];
 
 }
 
