@@ -62,6 +62,31 @@ void Screen::drawDoge(DogeMan &doge){
     doge.ResetBody();
 }
 
+void Screen::drawObstacle(Obstacles &box){
+    char* obstacle;
+    obstacle = box.GetBox();
+    int width = box.GetWidth();
+    int height = box.GetHeight();
+    int length = height*width;
+    int posx = box.posx;
+    int posy = box.posy;
+    int counter = 1;
+    for(int i = 0; i<length; i++){
+
+        if(counter > width){
+            posx = box.posx;
+            counter = 1;
+            posy++;
+        }
+        drawAtPos(posx, posy, obstacle[i]);
+
+        posx++;
+        counter++;
+    }
+
+    displayScreen();
+}
+
 void Screen::drawAtPos(int x, int y, char pixel){
     this->screen[y][x] = pixel;
 
