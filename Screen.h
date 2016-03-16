@@ -13,6 +13,9 @@ class Screen
         void drawDoge(DogeMan &doge);
         void drawObstacle();
         void Clear();
+
+        //Delay function (later will be replaced)
+        void delay(int ms);
     protected:
     private:
         void FillScreen();

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 Screen::Screen(int width, int height)
 {
     this->width = width;
@@ -63,6 +64,18 @@ void Screen::drawDoge(DogeMan &doge){
 
 void Screen::drawAtPos(int x, int y, char pixel){
     this->screen[y][x] = pixel;
+
+}
+
+void Screen::delay(int ms){
+        //This function later can be changed with zpuino/arduino delay included function
+        long pause;
+        clock_t now, then;
+
+        pause = ms*(CLOCKS_PER_SEC/1000);
+        now = then = clock();
+        while((now-then) < pause )
+            now = clock();
 
 }
 
