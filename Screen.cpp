@@ -56,9 +56,9 @@ void Screen::drawDoge(DogeMan &doge){
         posx++;
 
     }
-
     displayScreen();
 
+    doge.ResetBody();
 }
 
 void Screen::drawAtPos(int x, int y, char pixel){
@@ -67,9 +67,5 @@ void Screen::drawAtPos(int x, int y, char pixel){
 }
 
 void Screen::Clear(){
-    for(int i = 0; i < width; i++){
-        free(this->screen[i]);
-    }
-
-    free(this->screen);
+    FillScreen();
 }
