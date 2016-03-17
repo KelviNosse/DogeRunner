@@ -10,6 +10,8 @@ class Obstacles
 
         int GetWidth();
         int GetHeight();
+        void SetWidth(int w);
+        void SetHeight(int h);
         int posx;
         int posy;
         char* GetBox();
