@@ -22,6 +22,14 @@ Screen::~Screen()
     //dtor
 }
 
+int Screen::GetHeight(){
+    return this->height;
+}
+
+int Screen::GetWidth(){
+    return this->width;
+}
+
 void Screen::displayScreen(){
     for(int k = 0; k< height; k++){
         for(int j = 0; j< width; j++){
@@ -57,7 +65,6 @@ void Screen::drawDoge(DogeMan &doge){
         posx++;
 
     }
-    displayScreen();
 
     doge.ResetBody();
 }
@@ -84,7 +91,6 @@ void Screen::drawObstacle(Obstacles &box){
         counter++;
     }
 
-    displayScreen();
 }
 
 void Screen::drawAtPos(int x, int y, char pixel){

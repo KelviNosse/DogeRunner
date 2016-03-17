@@ -13,6 +13,8 @@ class Screen
         void drawDoge(DogeMan &doge);
         void drawObstacle(Obstacles &box);
         void Clear();
+        int GetWidth();
+        int GetHeight();
         //Delay function (later will be replaced)
         void delay(int ms);
     protected:
