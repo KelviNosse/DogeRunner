@@ -6,7 +6,7 @@ Obstacles::Obstacles(int width, int height)
     this->height = height;
 
     this->posx = 79;
-    this->posy = 7;
+    this->posy = 15;
 
     CreateBox();
 }
