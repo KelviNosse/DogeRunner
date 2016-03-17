@@ -8,7 +8,7 @@ DogeMan::DogeMan(char* name)
     this->lives = 3;
     this->score = 0;
     this->posx = 10;
-    this->posy = 3;
+    this->posy = 13;
     this->CreateBody();
 }
 
