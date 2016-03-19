@@ -1,7 +1,6 @@
 #ifndef DOGEMAN_H
 #define DOGEMAN_H
 
-
 class DogeMan
 {
     public:
@@ -10,6 +9,8 @@ class DogeMan
 
         int posx;
         int posy;
+        int jumping;
+        int landing;
         char* GetName();
         bool IsAlive();
         int GetScore();
@@ -17,6 +18,7 @@ class DogeMan
         char* GetBody();
         void Move(int x, int y);
         void ResetBody();
+        void jump();
     protected:
     private:
         char* name;

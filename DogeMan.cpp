@@ -9,6 +9,8 @@ DogeMan::DogeMan(char* name)
     this->score = 0;
     this->posx = 10;
     this->posy = 13;
+    this->jumping = 0;
+    this->landing = 0;
     this->CreateBody();
 }
 
@@ -42,6 +44,11 @@ void DogeMan::Move(int x, int y){
 
 }
 
+void DogeMan::jump(){
+    posy--;
+    jumping = 1;
+
+}
 void DogeMan::ResetBody(){
     this->CreateBody();
 }
