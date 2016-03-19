@@ -32,10 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="DogeCoins.cpp" />
+		<Unit filename="DogeCoins.h" />
 		<Unit filename="DogeMan.cpp" />
 		<Unit filename="DogeMan.h" />
 		<Unit filename="GameLogic.cpp" />
 		<Unit filename="GameLogic.h" />
+		<Unit filename="InputControl.cpp" />
+		<Unit filename="InputControl.h" />
 		<Unit filename="Obstacles.cpp" />
 		<Unit filename="Obstacles.h" />
 		<Unit filename="Screen.cpp" />
