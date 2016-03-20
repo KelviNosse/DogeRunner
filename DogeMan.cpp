@@ -38,6 +38,15 @@ char* DogeMan::GetName(){
     return this->name;
 }
 
+int DogeMan::GetScore(){
+    return this->score;
+}
+
+void DogeMan::SetScore(int value){
+
+    this->score = value;
+}
+
 void DogeMan::Move(int x, int y){
     this->posx = x;
     this->posy = y;

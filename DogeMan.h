@@ -14,6 +14,7 @@ class DogeMan
         char* GetName();
         bool IsAlive();
         int GetScore();
+        void SetScore(int value);
         int GetLives();
         char* GetBody();
         void Move(int x, int y);
