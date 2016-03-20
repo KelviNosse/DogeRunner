@@ -11,11 +11,14 @@ class DogeCoins
         int posx;
         int posy;
         int scorevalue;
-
+        int length;
+        char* GetBody();
         void CreateCoin();
+        void ResetBody();
+
+        void Move(int x, int y);
     protected:
     private:
-        int length;
         char body[100];
 
 };
