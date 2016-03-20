@@ -2,7 +2,7 @@
 #include <string.h>
 DogeCoins::DogeCoins()
 {
-    this->scorevalue = 10;
+    this->scorevalue = 5;
     this->posx = 60;
     this->posy = 10;
 
