@@ -69,6 +69,28 @@ void Screen::drawDoge(DogeMan &doge){
     doge.ResetBody();
 }
 
+void Screen::drawDogeCoin(DogeCoins &coin){
+    char *body;
+    body =  coin.GetBody();
+    int length = strlen(body);
+    int posx = coin.posx;
+    int posy = coin.posy;
+
+    for(int i = 0; i<length; i++){
+        if(body[i] == 'x'){
+            body[i] = '.';
+            posx = coin.posx;
+            posy++;
+        }
+        drawAtPos(posx, posy, body[i]);
+
+        posx++;
+    }
+
+    coin.ResetBody();
+
+}
+
 void Screen::drawObstacle(Obstacles &box){
     char* obstacle;
     obstacle = box.GetBox();

@@ -2,7 +2,7 @@
 #define SCREEN_H
 #include "DogeMan.h"
 #include "Obstacles.h"
-
+#include "DogeCoins.h"
 class Screen
 {
     public:
@@ -12,6 +12,7 @@ class Screen
         void displayScreen();
         void drawDoge(DogeMan &doge);
         void drawObstacle(Obstacles &box);
+        void drawDogeCoin(DogeCoins &coin);
         void Clear();
         int GetWidth();
         int GetHeight();
