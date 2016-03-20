@@ -18,13 +18,14 @@ class Screen
         int GetHeight();
         //Delay function (later will be replaced)
         void delay(int ms);
+        char **screen;
     protected:
     private:
         void FillScreen();
         void drawAtPos(int x, int y, char pixel);
         int width;
         int height;
-        char **screen;
+
 
 };
 

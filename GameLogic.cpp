@@ -23,7 +23,6 @@ GameLogic::~GameLogic()
 void GameLogic::initGame(){
     s = new Screen(80, 20);
     DogeMan player("Kelvin");
-    DogeCoins coin;
     InputControl in;
     Obstacles box(5,5);
     int box_x = box.posx;
@@ -32,9 +31,13 @@ void GameLogic::initGame(){
     int screen_width = s->GetWidth();
     int coin_x = coin.posx;
     int coin_y = coin.posy;
+    char *man_body = player.GetBody();
+    char *coin_body = coin.GetBody();
+    coingrab = 0;
     //SDL INIT FOR INPUT KEYSTATES
     in.initSDL();
     while(true){
+
         if(box_x <= -5){
             box_x = initial_x;
             box_y = rand()%(18-15+1)+15; //Generates random number between 15-18 (this can be changed for zpuino/arduino random function)
@@ -43,7 +46,7 @@ void GameLogic::initGame(){
 
         if(coin_x <= -55){
             coin_x = initial_x;
-            coin_y = rand()%(16-11+1)+11;
+            coin_y = rand()%(12-8+1)+8;
         }
 
         box.Move(box_x, box_y);
@@ -58,12 +61,13 @@ void GameLogic::initGame(){
         s->Clear();
 
         Manage_Input_Jumping(player, in);
-
+        DetectCoinGrab(player, player.posx,player.posy, coin_x, coin_y);
         system("clear");
+//        std::cout<<endl<<"Score: "<<player.GetScore();
+
 
     }
 
-    std::cout<<coin.posy;
 
 
 }
@@ -71,8 +75,8 @@ void GameLogic::initGame(){
 void GameLogic::Generate_Doge_Coins(Screen *s, DogeCoins &coin, int x, int y){
         int coins_count = 5;
         x = x + 50;
-        y = y - 7;
-        for(int i = 0; i<2; i++){
+        y = y - 3;
+        for(int i = 0; i<1; i++){
             s->drawDogeCoin(coin);
             coin.Move(x+i*20, y);
         }
@@ -96,6 +100,38 @@ void GameLogic::Manage_Input_Jumping(DogeMan &player, InputControl & in){
         }
 }
 
+void GameLogic::DetectCoinGrab(DogeMan& player, int man_x, int man_y, int coin_x, int coin_y)
+{
+    //Aproximated height and width values for dogeman and dogecoins
+    //man_height = 7;
+    //coin_height = 2;
+    //coin_width = 5;
+    //man_width = 3;
+    if(man_y+7 < coin_y){
+       coingrab = 0;
+    }else if(man_y > coin_y + 2)
+    {
+        coingrab = 0;
+    }else if (man_x > coin_x + 5){
+        coingrab = 0;
+    }else if(man_x + 3 < coin_x){
+        coingrab = 0;
+    }else
+        coingrab++;
+
+   if(coingrab == 1){
+        GainScore(player);
+   }
+
+
+
+}
+
+void GameLogic::GainScore(DogeMan &player){
+
+    player.SetScore(player.GetScore()+coin.scorevalue);
+
+}
 void GameLogic::DetectCollision(DogeMan* man, Obstacles* obstacle){
 
 }
