@@ -24,7 +24,7 @@ void GameLogic::initGame(){
     s = new Screen(80, 20);
     DogeMan player("Kelvin");
     InputControl in;
-    Obstacles box(5,5);
+    Obstacles box(3,5);
     int box_x = box.posx;
     int box_y = box.posy;
     int initial_x = box_x;
@@ -34,9 +34,11 @@ void GameLogic::initGame(){
     char *man_body = player.GetBody();
     char *coin_body = coin.GetBody();
     coingrab = 0;
+    collision = 0;
+    game_running = 1;
     //SDL INIT FOR INPUT KEYSTATES
     in.initSDL();
-    while(true){
+    while(game_running){
 
         if(box_x <= -5){
             box_x = initial_x;
@@ -46,7 +48,7 @@ void GameLogic::initGame(){
 
         if(coin_x <= -55){
             coin_x = initial_x;
-            coin_y = rand()%(12-8+1)+8;
+            coin_y = rand()%(12-8+1)+8; //this too
         }
 
         box.Move(box_x, box_y);
@@ -54,6 +56,7 @@ void GameLogic::initGame(){
         s->drawDoge(player);
         Generate_Doge_Coins(s, coin, coin_x, coin_y);
         s->drawObstacle(box);
+        std::cout<<"Score: "<<player.GetScore()<<endl;
         s->displayScreen();
         s->delay(20);
         box_x--;
@@ -61,12 +64,14 @@ void GameLogic::initGame(){
         s->Clear();
 
         Manage_Input_Jumping(player, in);
+        DetectCollision(player, box, player.posx, player.posy, box_x, box_y);
         DetectCoinGrab(player, player.posx,player.posy, coin_x, coin_y);
         system("clear");
-//        std::cout<<endl<<"Score: "<<player.GetScore();
+
 
 
     }
+
 
 
 
@@ -132,6 +137,43 @@ void GameLogic::GainScore(DogeMan &player){
     player.SetScore(player.GetScore()+coin.scorevalue);
 
 }
-void GameLogic::DetectCollision(DogeMan* man, Obstacles* obstacle){
+void GameLogic::DetectCollision(DogeMan& man,Obstacles& box, int man_x, int man_y, int box_x, int box_y){
 
+    if(man_y + 5 < box_y ){
+
+    }else if(man_y > box_y + box.GetHeight()){
+
+    }else if(man_x > box_x + box.GetWidth()){
+
+    }else if(man_x + 6 < box_x){
+    }else
+        GameOver();
+
+//    std::cout<<"Man Pos X: "<<man_x<<endl;
+//    std::cout<<"Man Pos Y: "<<man_y<<endl;
+//    std::cout<<"Box Pos X: "<<box_x<<endl;
+//    std::cout<<"Box Pos Y: "<<box_y<<endl;
+
+}
+
+void GameLogic::GameOver(){
+
+    game_running = 0;
+    RestartGame();
+}
+
+void GameLogic::RestartGame(){
+    if(game_running == 0){
+        char opc;
+        do{
+        cout<<"Game Over :( \nWant to retry Y/N? :";
+        cin>>opc;
+
+        if(opc == 'y' || opc=='Y')
+            initGame();
+        else if(opc == 'n' || opc == 'N')
+            exit(0);
+        }while(opc != 'y' || opc != 'Y' || opc != 'n' || opc != 'N');
+
+    }
 }
