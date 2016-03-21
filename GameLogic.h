@@ -17,6 +17,7 @@ class GameLogic
     private:
         Screen* s;
         DogeCoins coin;
+        InputControl in;
         int coingrab;
         int collision;
         int game_running;

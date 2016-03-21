@@ -12,7 +12,7 @@
 using namespace std;
 GameLogic::GameLogic()
 {
-    //ctor
+    in.initSDL();
 }
 
 GameLogic::~GameLogic()
@@ -37,7 +37,6 @@ void GameLogic::initGame(){
     collision = 0;
     game_running = 1;
     //SDL INIT FOR INPUT KEYSTATES
-    in.initSDL();
     while(game_running){
 
         if(box_x <= -5){
